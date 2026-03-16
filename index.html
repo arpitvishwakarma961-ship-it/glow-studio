@@ -76,7 +76,46 @@ color:white;
 padding:20px;
 text-align:center;
 }
+.btn-outline{
+border:2px solid white;
+padding:12px 25px;
+color:white;
+text-decoration:none;
+border-radius:30px;
+transition:.3s;
+}
 
+.btn-outline:hover{
+background:white;
+color:black;
+}
+
+.service-card{
+transition:.4s;
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.price-card{
+transition:.4s;
+}
+
+.price-card:hover{
+background:#ff4d6d;
+transform:scale(1.05);
+}
+
+.gallery img{
+border-radius:15px;
+transition:.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.08);
+}
 </style>
 
 </head>
@@ -112,12 +151,13 @@ text-align:center;
 
 </section>
 
-<section class="section gallery">
+<section class="section gallery" id="gallery">
 <h2>Our Work</h2>
 
 <img src="https://picsum.photos/300?1">
 <img src="https://picsum.photos/300?2">
 <img src="https://picsum.photos/300?3">
+<img src="https://picsum.photos/300?4">
 
 </section>
 
