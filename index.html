@@ -293,30 +293,18 @@
 </div>
 </section>
     /* ── GALLERY ── */
-    #gallery { background: var(--blush); }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 220px);
-      gap: 1rem; margin-top: 3rem;
-    }
-    .gallery-item {
-      overflow: hidden; position: relative;
-    }
-    .gallery-item:first-child { grid-row: span 2; }
-    .gallery-placeholder {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem; letter-spacing: 2px;
-      transition: transform 0.5s;
-    }
-    .gallery-item:hover .gallery-placeholder { transform: scale(1.05); }
-    .g1 { background: linear-gradient(135deg, #c8a08a, #7a5c52); color: rgba(255,255,255,0.4); }
-    .g2 { background: linear-gradient(135deg, #3d2b25, #c9a84c); color: rgba(255,255,255,0.3); }
-    .g3 { background: linear-gradient(135deg, #c9a84c, #e8d5a3); color: rgba(61,43,37,0.4); }
-    .g4 { background: linear-gradient(135deg, #1a1210, #3d2b25); color: rgba(201,168,76,0.4); }
-    .g5 { background: linear-gradient(135deg, #f5ece8, #c8a08a); color: rgba(61,43,37,0.3); }
+    <section id="gallery" class="section dark">
+<h2>Our Work</h2>
+
+<div class="gallery-grid">
+
+<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9">
+<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348">
+<img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250">
+<img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f">
+
+</div>
+</section>
 
     /* ── TESTIMONIALS ── */
     #testimonials { background: var(--white); }
