@@ -1,721 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Glow Studio</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#fff;
+}
+
+.studio-hero{
+height:100vh;
+background:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9') center/cover no-repeat;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.overlay{
+background:rgba(0,0,0,.6);
+padding:60px;
+text-align:center;
+color:white;
+}
+
+.hero-btns{
+margin-top:20px;
+}
+
+.btn{
+background:#ff4d6d;
+padding:12px 25px;
+color:white;
+text-decoration:none;
+margin:10px;
+display:inline-block;
+}
+
+.section{
+padding:60px;
+text-align:center;
+}
+
+.service-card{
+background:#f4f4f4;
+padding:20px;
+margin:10px;
+display:inline-block;
+width:220px;
+}
+
+.price-card{
+background:#111;
+color:white;
+padding:25px;
+margin:10px;
+display:inline-block;
+width:230px;
+}
+
+.gallery img{
+width:250px;
+margin:10px;
+}
+
+footer{
+background:black;
+color:white;
+padding:20px;
+text-align:center;
+}
 
 </style>
-    :root {
-      --rose: #c8a08a;
-      --gold: #c9a84c;
-      --gold-light: #e8d5a3;
-      --blush: #f5ece8;
-      --dark: #1a1210;
-      --mid: #3d2b25;
-      --soft: #7a5c52;
-      --white: #fdfaf8;
-    }
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Jost', sans-serif;
-      background: var(--white);
-      color: var(--dark);
-      overflow-x: hidden;
-    }
-</style>
 </head>
-
 <body>
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 5%;
-      background: rgba(253,250,248,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(201,168,76,0.2);
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.7rem; font-weight: 600; letter-spacing: 2px;
-      color: var(--mid);
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none; color: var(--soft);
-      font-size: 0.82rem; letter-spacing: 1.5px; text-transform: uppercase;
-      font-weight: 500; transition: color 0.3s;
-    }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-book {
-      background: var(--gold); color: var(--white) !important;
-      padding: 0.5rem 1.4rem; border-radius: 2px;
-    }
-    .nav-book:hover { background: var(--mid) !important; color: var(--white) !important; }
 
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { width: 24px; height: 2px; background: var(--mid); transition: 0.3s; }
+<header class="studio-hero">
+<div class="overlay">
+<h1>Creative Beauty & Style Studio</h1>
+<p>Makeup • Hair • Fashion Experts</p>
 
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #1a1210 0%, #3d2b25 50%, #1a1210 100%);
-      display: flex; align-items: center;
-      position: relative; overflow: hidden;
-      padding: 0 5%;
-    }
-    .hero-bg-pattern {
-      position: absolute; inset: 0;
-      background-image: radial-gradient(circle at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(200,160,138,0.08) 0%, transparent 40%);
-    }
-    .hero-line {
-      position: absolute; top: 0; left: 50%;
-      width: 1px; height: 100%;
-      background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.3), transparent);
-    }
-    .hero-content {
-      position: relative; z-index: 2;
-      max-width: 650px;
-      animation: fadeUp 1s ease both;
-    }
-    .hero-badge {
-      display: inline-block;
-      font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--gold); border: 1px solid rgba(201,168,76,0.4);
-      padding: 0.4rem 1rem; margin-bottom: 2rem;
-    }
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.5rem, 8vw, 6rem);
-      font-weight: 300; line-height: 1;
-      color: var(--white);
-      margin-bottom: 1.5rem;
-    }
-    .hero-title em { color: var(--gold); font-style: italic; }
-    .hero-sub {
-      font-size: 0.95rem; color: rgba(253,250,248,0.6);
-      line-height: 1.8; max-width: 420px; margin-bottom: 2.5rem;
-      letter-spacing: 0.5px;
-    }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--gold); color: var(--dark);
-      padding: 0.85rem 2.2rem; text-decoration: none;
-      font-size: 0.82rem; letter-spacing: 2px; text-transform: uppercase;
-      font-weight: 500; transition: all 0.3s;
-    }
-    .btn-primary:hover { background: var(--gold-light); }
-    .btn-outline {
-      border: 1px solid rgba(253,250,248,0.3); color: var(--white);
-      padding: 0.85rem 2.2rem; text-decoration: none;
-      font-size: 0.82rem; letter-spacing: 2px; text-transform: uppercase;
-      font-weight: 300; transition: all 0.3s;
-    }
-    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-
-    .hero-stats {
-      position: absolute; right: 5%; bottom: 10%;
-      display: flex; flex-direction: column; gap: 2rem;
-    }
-    .stat { text-align: right; }
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem; color: var(--gold); font-weight: 300;
-    }
-    .stat-label { font-size: 0.72rem; letter-spacing: 2px; color: rgba(253,250,248,0.5); text-transform: uppercase; }
-
-    /* ── SECTION BASE ── */
-    section { padding: 6rem 5%; }
-    .section-tag {
-      font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 0.8rem;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 300; color: var(--mid); line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-    .section-title em { font-style: italic; color: var(--rose); }
-    .section-line {
-      width: 50px; height: 1px; background: var(--gold);
-      margin-bottom: 1.5rem;
-    }
-
-    /* ── ABOUT ── */
-    #about { background: var(--blush); }
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto;
-    }
-    .about-img-box {
-      position: relative;
-    }
-    .about-img-main {
-      width: 100%; aspect-ratio: 3/4;
-      background: linear-gradient(135deg, var(--rose), var(--mid));
-      display: flex; align-items: center; justify-content: center;
-    }
-    .about-img-main span {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 5rem; color: rgba(255,255,255,0.2);
-    }
-    .about-img-badge {
-      position: absolute; bottom: -1.5rem; right: -1.5rem;
-      background: var(--gold); padding: 1.5rem;
-      text-align: center;
-    }
-    .about-img-badge strong {
-      display: block; font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem; color: var(--white);
-    }
-    .about-img-badge small {
-      font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
-      color: rgba(253,250,248,0.8);
-    }
-    .about-text p {
-      color: var(--soft); line-height: 1.9; margin-bottom: 1.2rem;
-      font-size: 0.95rem;
-    }
-    .about-features { display: flex; gap: 2rem; margin-top: 2rem; }
-    .feat { text-align: center; }
-    .feat-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
-    .feat p { font-size: 0.78rem; letter-spacing: 1px; color: var(--soft); }
-
-    /* ── SERVICES ── */
-    <section class="section dark">
-<h2>Our Premium Services</h2>
-
-<div class="service-grid">
-
-<div class="service-card">
-<h3>Hair Styling</h3>
-<p>Modern cuts & luxury finishing</p>
-</div>
-
-<div class="service-card">
-<h3>Makeup Studio</h3>
-<p>HD bridal & party makeover</p>
-</div>
-
-<div class="service-card">
-<h3>Skin Treatment</h3>
-<p>Glow facial & skin therapy</p>
+<div class="hero-btns">
+<a href="#" class="btn">Book Now</a>
+<a href="#" class="btn">View Work</a>
 </div>
 
 </div>
-</section>
-    .service-card {
-      border: 1px solid rgba(201,168,76,0.2);
-      padding: 2.5rem 2rem;
-      transition: all 0.4s; cursor: default;
-      position: relative; overflow: hidden;
-    }
-    .service-card::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(201,168,76,0.05), transparent);
-      opacity: 0; transition: 0.4s;
-    }
-    .service-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(61,43,37,0.1); }
-    .service-card:hover::before { opacity: 1; }
-    .service-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .service-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem; color: var(--mid); margin-bottom: 0.5rem;
-    }
-    .service-desc { font-size: 0.85rem; color: var(--soft); line-height: 1.7; margin-bottom: 1rem; }
-    .service-price { font-size: 0.8rem; color: var(--gold); letter-spacing: 1px; font-weight: 500; }
+</header>
 
-    /* ── PRICING ── */
-    #pricing { background: var(--dark); }
-    #pricing .section-title { color: var(--white); }
-    #pricing .section-tag { color: var(--gold); }
-    .pricing-table {
-      max-width: 700px; margin: 3rem auto 0;
-      border: 1px solid rgba(201,168,76,0.2);
-    }
-    .pricing-row {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 2rem;
-      border-bottom: 1px solid rgba(201,168,76,0.1);
-      transition: background 0.3s;
-    }
-    .pricing-row:last-child { border-bottom: none; }
-    .pricing-row:hover { background: rgba(201,168,76,0.05); }
-    .pricing-row .name { color: rgba(253,250,248,0.8); font-size: 0.92rem; }
-    .pricing-row .price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem; color: var(--gold);
-    }
-    .pricing-note {
-      text-align: center; margin-top: 1.5rem;
-      font-size: 0.78rem; color: rgba(253,250,248,0.3);
-      letter-spacing: 1px;
-    }
 <section class="section">
-<h2>Studio Packages</h2>
+<h2>Our Services</h2>
 
-<div class="pricing-grid">
+<div class="service-card">Hair Styling</div>
+<div class="service-card">Makeup</div>
+<div class="service-card">Skin Treatment</div>
 
-<div class="price-card">
-<h3>Basic Styling</h3>
-<h1>₹799</h1>
-<p>Hair + Light Makeup</p>
-<a href="#" class="btn">Book</a>
-</div>
-
-<div class="price-card popular">
-<h3>Premium Makeover</h3>
-<h1>₹1999</h1>
-<p>Hair + HD Makeup + Styling</p>
-<a href="#" class="btn">Book</a>
-</div>
-
-<div class="price-card">
-<h3>Bridal Package</h3>
-<h1>₹9999</h1>
-<p>Full Bridal Look</p>
-<a href="#" class="btn">Book</a>
-</div>
-
-</div>
 </section>
-    /* ── GALLERY ── */
-    <section id="gallery" class="section dark">
+
+<section class="section">
+<h2>Packages</h2>
+
+<div class="price-card">Basic ₹799</div>
+<div class="price-card">Premium ₹1999</div>
+<div class="price-card">Bridal ₹9999</div>
+
+</section>
+
+<section class="section gallery">
 <h2>Our Work</h2>
 
-<div class="gallery-grid">
+<img src="https://picsum.photos/300?1">
+<img src="https://picsum.photos/300?2">
+<img src="https://picsum.photos/300?3">
 
-<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9">
-<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348">
-<img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250">
-<img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f">
-
-</div>
 </section>
 
-    /* ── TESTIMONIALS ── */
-    #testimonials { background: var(--white); }
-    .testimonials-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem; margin-top: 3rem;
-    }
-    .testi-card {
-      padding: 2rem; border-left: 3px solid var(--gold);
-      background: var(--blush);
-    }
-    .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 1rem; }
-    .testi-text { font-style: italic; color: var(--soft); line-height: 1.8; font-size: 0.92rem; margin-bottom: 1.5rem; }
-    .testi-name { font-weight: 500; color: var(--mid); font-size: 0.85rem; letter-spacing: 1px; }
-    .testi-role { font-size: 0.75rem; color: var(--rose); }
-
-    /* ── BOOKING ── */
-    #booking { background: var(--mid); }
-    #booking .section-title { color: var(--white); }
-    .booking-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: start; max-width: 900px; margin: 3rem auto 0;
-    }
-    .contact-info { }
-    .contact-item {
-      display: flex; align-items: flex-start; gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .contact-icon {
-      width: 40px; height: 40px; min-width: 40px;
-      border: 1px solid rgba(201,168,76,0.3);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-    }
-    .contact-label { font-size: 0.72rem; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 0.3rem; }
-    .contact-val { color: rgba(253,250,248,0.7); font-size: 0.9rem; line-height: 1.6; }
-    .booking-form { display: flex; flex-direction: column; gap: 1rem; }
-    .booking-form input,
-    .booking-form select,
-    .booking-form textarea {
-      background: rgba(253,250,248,0.06);
-      border: 1px solid rgba(201,168,76,0.2);
-      color: var(--white); padding: 0.9rem 1.2rem;
-      font-family: 'Jost', sans-serif; font-size: 0.88rem;
-      outline: none; transition: border-color 0.3s; width: 100%;
-    }
-    .booking-form input::placeholder,
-    .booking-form textarea::placeholder { color: rgba(253,250,248,0.3); }
-    .booking-form select option { background: var(--mid); }
-    .booking-form input:focus,
-    .booking-form select:focus,
-    .booking-form textarea:focus { border-color: var(--gold); }
-    .booking-form textarea { resize: none; height: 100px; }
-    .btn-submit {
-      background: var(--gold); color: var(--dark);
-      border: none; padding: 1rem; cursor: pointer;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.82rem; letter-spacing: 2px; text-transform: uppercase;
-      font-weight: 500; transition: all 0.3s;
-    }
-    .btn-submit:hover { background: var(--gold-light); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--dark);
-      padding: 3rem 5% 2rem;
-      border-top: 1px solid rgba(201,168,76,0.15);
-    }
-    .footer-top {
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem;
-    }
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem; color: var(--white); letter-spacing: 2px;
-    }
-    .footer-logo span { color: var(--gold); }
-    .footer-socials { display: flex; gap: 1rem; }
-    .social-btn {
-      width: 38px; height: 38px;
-      border: 1px solid rgba(201,168,76,0.3);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold); text-decoration: none; font-size: 0.85rem;
-      transition: all 0.3s;
-    }
-    .social-btn:hover { background: var(--gold); color: var(--dark); }
-    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
-    .footer-links a {
-      text-decoration: none; color: rgba(253,250,248,0.4);
-      font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase;
-      transition: color 0.3s;
-    }
-    .footer-links a:hover { color: var(--gold); }
-    .footer-bottom {
-      border-top: 1px solid rgba(253,250,248,0.06);
-      padding-top: 1.5rem;
-      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-bottom p { font-size: 0.75rem; color: rgba(253,250,248,0.25); }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .reveal {
-      opacity: 0; transform: translateY(25px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ── MOBILE ── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--white); padding: 1.5rem; border-top: 1px solid rgba(201,168,76,0.2); }
-      .nav-links.open { display: flex; }
-      .hamburger { display: flex; }
-      .hero-stats { display: none; }
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .about-img-badge { right: 0; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-      .gallery-item:first-child { grid-row: span 1; }
-      .booking-grid { grid-template-columns: 1fr; }
-      .footer-top { flex-direction: column; }
-    }
-  </style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <a href="#hero" class="nav-logo">Glow <span>Studio</span></a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
-    <li><a href="#booking" class="nav-book">Book Now</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger">
-    <span></span><span></span><span></span>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg-pattern"></div>
-  <div class="hero-line"></div>
-  <div class="hero-content">
-    <span class="hero-badge">Premium Beauty & Wellness</span>
-    <h1 class="hero-title">Look Good,<br><em>Feel Great.</em></h1>
-    <p class="hero-sub">Where every visit is a luxurious escape. Expert stylists, premium products, and a space designed just for you.</p>
-    <div class="hero-btns">
-      <a href="#booking" class="btn-primary">Book Appointment</a>
-      <a href="#services" class="btn-outline">Our Services</a>
-    </div>
-  </div>
-  <div class="hero-stats">
-    <div class="stat">
-      <div class="stat-num">8+</div>
-      <div class="stat-label">Years Experience</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">500+</div>
-      <div class="stat-label">Happy Clients</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">12</div>
-      <div class="stat-label">Expert Stylists</div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-img-box reveal">
-      <div class="about-img-main"><span>✦</span></div>
-      <div class="about-img-badge">
-        <strong>8+</strong>
-        <small>Years of Excellence</small>
-      </div>
-    </div>
-    <div class="about-text reveal">
-      <p class="section-tag">About Us</p>
-      <h2 class="section-title">Where Beauty <em>Meets</em> Artistry</h2>
-      <div class="section-line"></div>
-      <p>Glow Studio was founded with one simple belief — every person deserves to feel beautiful, confident, and pampered. Nestled in the heart of Sector 18, Noida, we have been transforming looks and lifting spirits since 2016.</p>
-      <p>Our team of skilled professionals stays updated with the latest global trends while understanding what works best for Indian hair types and skin tones. From everyday cuts to elaborate bridal transformations, we do it all with love and precision.</p>
-      <div class="about-features">
-        <div class="feat"><div class="feat-icon">✦</div><p>Premium Products</p></div>
-        <div class="feat"><div class="feat-icon">✦</div><p>Expert Team</p></div>
-        <div class="feat"><div class="feat-icon">✦</div><p>Hygienic Space</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="services-header reveal">
-    <p class="section-tag">What We Offer</p>
-    <h2 class="section-title">Our <em>Services</em></h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="services-grid">
-    <div class="service-card reveal">
-      <div class="service-icon">✂️</div>
-      <h3 class="service-name">Haircut & Styling</h3>
-      <p class="service-desc">Precision cuts tailored to your face shape, hair texture, and personal style. From classic bobs to modern layers.</p>
-      <span class="service-price">Starting ₹200</span>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">🎨</div>
-      <h3 class="service-name">Hair Color & Highlights</h3>
-      <p class="service-desc">Global color, balayage, ombre, and highlights using premium international brands that protect your hair.</p>
-      <span class="service-price">Starting ₹800</span>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">✨</div>
-      <h3 class="service-name">Facial & Cleanup</h3>
-      <p class="service-desc">Deep cleansing facials and express cleanups for glowing, healthy skin. Tailored for your skin type.</p>
-      <span class="service-price">Starting ₹400</span>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">👰</div>
-      <h3 class="service-name">Bridal Package</h3>
-      <p class="service-desc">Complete bridal makeover including hair, makeup, draping, and pre-bridal skin treatments. Your perfect day, perfected.</p>
-      <span class="service-price">Starting ₹5,000</span>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">💆</div>
-      <h3 class="service-name">Spa & Massage</h3>
-      <p class="service-desc">Relaxing head, back, and body massages using aromatic oils. Unwind, de-stress, and rejuvenate completely.</p>
-      <span class="service-price">Starting ₹600</span>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">💅</div>
-      <h3 class="service-name">Nail Art & Manicure</h3>
-      <p class="service-desc">Basic manicure & pedicure to elaborate nail art designs. Express yourself with every fingertip.</p>
-      <span class="service-price">Starting ₹300</span>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing">
-  <div style="text-align:center;" class="reveal">
-    <p class="section-tag">Transparent Rates</p>
-    <h2 class="section-title">Our <em style="color:var(--rose)">Pricing</em></h2>
-    <div class="section-line" style="margin:0 auto 0.5rem;"></div>
-  </div>
-  <div class="pricing-table reveal">
-    <div class="pricing-row"><span class="name">Haircut (Women)</span><span class="price">₹200 – ₹500</span></div>
-    <div class="pricing-row"><span class="name">Haircut (Men)</span><span class="price">₹100 – ₹250</span></div>
-    <div class="pricing-row"><span class="name">Hair Color (Global)</span><span class="price">₹800 – ₹2,000</span></div>
-    <div class="pricing-row"><span class="name">Highlights / Balayage</span><span class="price">₹1,500 – ₹4,000</span></div>
-    <div class="pricing-row"><span class="name">Facial (Basic)</span><span class="price">₹400 – ₹800</span></div>
-    <div class="pricing-row"><span class="name">Facial (Premium)</span><span class="price">₹900 – ₹1,800</span></div>
-    <div class="pricing-row"><span class="name">Bridal Makeup</span><span class="price">₹5,000+</span></div>
-    <div class="pricing-row"><span class="name">Spa / Head Massage</span><span class="price">₹600 – ₹1,200</span></div>
-    <div class="pricing-row"><span class="name">Manicure & Pedicure</span><span class="price">₹300 – ₹600</span></div>
-    <div class="pricing-row"><span class="name">Nail Art</span><span class="price">₹200 – ₹500</span></div>
-  </div>
-  <p class="pricing-note reveal">* Prices may vary based on hair length and product used. Walk-ins welcome.</p>
-</section>
-
-<!-- GALLERY -->
-<section id="gallery">
-  <div class="reveal">
-    <p class="section-tag">Our Work</p>
-    <h2 class="section-title">The <em>Gallery</em></h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="gallery-grid reveal">
-    <div class="gallery-item"><div class="gallery-placeholder g1">Bridal Look</div></div>
-    <div class="gallery-item"><div class="gallery-placeholder g2">Hair Color</div></div>
-    <div class="gallery-item"><div class="gallery-placeholder g3">Balayage</div></div>
-    <div class="gallery-item"><div class="gallery-placeholder g4">Nail Art</div></div>
-    <div class="gallery-item"><div class="gallery-placeholder g5">Spa Day</div></div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="reveal">
-    <p class="section-tag">Client Love</p>
-    <h2 class="section-title">What They <em>Say</em></h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="testimonials-grid">
-    <div class="testi-card reveal">
-      <div class="stars">★★★★★</div>
-      <p class="testi-text">"Glow Studio is my go-to for everything! The team is incredibly skilled and the ambiance is so relaxing. My hair color came out exactly as I wanted."</p>
-      <div class="testi-name">Priya Sharma</div>
-      <div class="testi-role">Regular Client</div>
-    </div>
-    <div class="testi-card reveal">
-      <div class="stars">★★★★★</div>
-      <p class="testi-text">"Got my bridal makeup done here and I felt like an absolute queen! The attention to detail was outstanding. Every guest complimented me all day."</p>
-      <div class="testi-name">Anjali Mehta</div>
-      <div class="testi-role">Bridal Client</div>
-    </div>
-    <div class="testi-card reveal">
-      <div class="stars">★★★★★</div>
-      <p class="testi-text">"Best balayage in Noida! Affordable, hygienic, and the staff is so friendly. The spa session after was cherry on top. Highly recommend Glow Studio!"</p>
-      <div class="testi-name">Sneha Gupta</div>
-      <div class="testi-role">Loyal Client</div>
-    </div>
-  </div>
-</section>
-
-<!-- BOOKING -->
-<section id="booking">
-  <div style="text-align:center;" class="reveal">
-    <p class="section-tag">Get In Touch</p>
-    <h2 class="section-title">Book Your <em style="color:var(--rose)">Appointment</em></h2>
-    <div class="section-line" style="margin:0 auto;"></div>
-  </div>
-  <div class="booking-grid">
-    <div class="contact-info reveal">
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <div>
-          <div class="contact-label">Address</div>
-          <div class="contact-val">Shop No. 12, Rose Avenue Market,<br>Sector 18, Noida — 201301<br>Uttar Pradesh, India</div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📞</div>
-        <div>
-          <div class="contact-label">Phone</div>
-          <div class="contact-val">+91 98765 43210</div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📧</div>
-        <div>
-          <div class="contact-label">Email</div>
-          <div class="contact-val">glowstudio@gmail.com</div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">⏰</div>
-        <div>
-          <div class="contact-label">Timings</div>
-          <div class="contact-val">Monday – Saturday<br>9:00 AM – 8:00 PM</div>
-        </div>
-      </div>
-    </div>
-    <form class="booking-form reveal" onsubmit="handleSubmit(event)">
-      <input type="text" placeholder="Your Full Name" required />
-      <input type="tel" placeholder="Phone Number" required />
-      <select required>
-        <option value="" disabled selected>Select Service</option>
-        <option>Haircut & Styling</option>
-        <option>Hair Color / Highlights</option>
-        <option>Facial & Cleanup</option>
-        <option>Bridal Package</option>
-        <option>Spa & Massage</option>
-        <option>Nail Art / Manicure</option>
-      </select>
-      <input type="date" required />
-      <textarea placeholder="Any special requests or notes..."></textarea>
-      <button type="submit" class="btn-submit">Confirm Appointment</button>
-    </form>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="footer-top">
-    <div class="footer-logo">Glow <span>Studio</span></div>
-    <div class="footer-links">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#booking">Book</a>
-    </div>
-    <div class="footer-socials">
-      <a href="#" class="social-btn">f</a>
-      <a href="#" class="social-btn">in</a>
-      <a href="#" class="social-btn">✦</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2024 Glow Studio. All rights reserved.</p>
-    <p>Shop No. 12, Sector 18, Noida | +91 98765 43210</p>
-  </div>
+Glow Studio © 2026
 </footer>
 
-<script>
-  // Hamburger menu
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
-
-  // Form submit
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.btn-submit');
-    btn.textContent = '✓ Appointment Booked!';
-    btn.style.background = '#4caf50';
-    setTimeout(() => { btn.textContent = 'Confirm Appointment'; btn.style.background = ''; e.target.reset(); }, 3000);
-  }
-</script>
 </body>
 </html>
