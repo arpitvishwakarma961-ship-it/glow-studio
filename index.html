@@ -14,7 +14,98 @@
 
 </div>
 </head>
+<style>
 
+/* HERO */
+.studio-hero{
+height:100vh;
+background:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9') center/cover no-repeat;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.overlay{
+background:rgba(0,0,0,.6);
+padding:60px;
+text-align:center;
+color:white;
+}
+
+.studio-hero h1{font-size:50px;}
+.hero-btns{margin-top:25px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+
+.btn-outline{
+border:2px solid white;
+padding:12px 30px;
+color:white;
+text-decoration:none;
+border-radius:30px;
+}
+
+/* SERVICES */
+.service-grid{
+display:flex;
+gap:25px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:30px;
+}
+
+.service-card{
+background:white;
+color:black;
+padding:25px;
+width:250px;
+border-radius:15px;
+transition:.4s;
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+}
+
+/* PRICING */
+.pricing-grid{
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.price-card{
+background:white;
+padding:30px;
+width:260px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.popular{
+background:#ff4d6d;
+color:white;
+transform:scale(1.08);
+}
+
+/* GALLERY */
+.gallery-grid{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.gallery-grid img{
+width:260px;
+border-radius:15px;
+transition:.4s;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.08);
+}
+
+</style>
     :root {
       --rose: #c8a08a;
       --gold: #c9a84c;
